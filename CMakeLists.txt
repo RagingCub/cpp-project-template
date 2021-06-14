@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(cpp-project-template)
+project(cpp_project_template)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -28,6 +28,7 @@ include(ProjectDependencies)
 include(ProjectConfig_h)
 
 add_subdirectory(src)
+add_subdirectory(po)
 if (BUILD_TESTING)
     enable_testing()
 
