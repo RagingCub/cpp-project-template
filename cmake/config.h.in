@@ -1,0 +1,6 @@
+/* project config.h */
+#pragma once
+
+#cmakedefine GETTEXT_PACKAGE "@GETTEXT_PACKAGE@"
+#cmakedefine PACKAGE_LOCALEDIR "@PACKAGE_LOCALEDIR@"
+#cmakedefine RESOURCES_DIR "@RESOURCES_DIR@"

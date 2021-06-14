@@ -3,28 +3,29 @@ project(cpp-project-template)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include(FetchContent)
-
-FetchContent_Declare(mariadbpp-target
-        GIT_REPOSITORY "https://github.com/viaduck/mariadbpp")
-
-FetchContent_Declare(sentry-native-target
-        GIT_REPOSITORY "https://github.com/getsentry/sentry-native"
-        GIT_TAG "0.3.4")
-
-FetchContent_Declare(googletest
-        GIT_REPOSITORY "https://github.com/google/googletest.git"
-        GIT_TAG "release-1.10.0")
-
-FetchContent_MakeAvailable(mariadbpp-target sentry-native-target)
-
-option(BUILD_TESTING "build unit tests" ON)
-
-include_directories(/usr/include/mariadb)
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/extern/include)
-link_directories(${CMAKE_CURRENT_BINARY_DIR}/extern/lib)
-
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# tell cmake where its modules can be found in our project directory
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+# set install directory variable as defined by the GNU Coding Standards.
+# e.g. CMAKE_INSTALL_DATAROOTDIR; CMAKE_INSTALL_FULL_BINDIR;
+# CMAKE_INSTALL_FULL_DOCDIR...
+include(GNUInstallDirs)
+
+# create a dependency graph
+include(DependencyGraph)
+
+# set CMake options that the user can optionally select ON or OFF
+include(ProjectOptions)
+
+# find dependencies
+include(ProjectDependencies)
+
+# create config.h
+include(ProjectConfig_h)
 
 add_subdirectory(src)
 if (BUILD_TESTING)

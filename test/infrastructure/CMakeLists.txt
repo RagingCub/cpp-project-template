@@ -1,4 +1,5 @@
-set(INFRASTRUCTURE_TEST_FILES sentry/sentry_logger_test.cpp)
+set(INFRASTRUCTURE_TEST_FILES
+        sentry/sentry_logger_test.cpp)
 
 include_directories(${PROJECT_SOURCE_DIR}/include/domain)
 include_directories(${PROJECT_SOURCE_DIR}/include/infrastructure)

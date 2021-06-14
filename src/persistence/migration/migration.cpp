@@ -6,10 +6,10 @@
 
 namespace persistence::migration {
 
-    Migration::Migration(std::string name)
-            : name_(name) {}
+Migration::Migration(std::string name)
+    : name_(name) {}
 
-    const std::string Migration::get_name() const {
-        return name_;
-    }
+const std::string Migration::get_name() const {
+  return name_;
+}
 }
