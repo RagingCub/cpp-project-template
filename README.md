@@ -1,3 +1,3 @@
-![CMake CI](https://github.com/RagingCub/cpp-project-template/workflows/CMake%20CI/badge.svg)
+[![CMake](https://github.com/RagingCub/cpp_project_template/actions/workflows/cmake.yml/badge.svg)](https://github.com/RagingCub/cpp_project_template/actions/workflows/cmake.yml)
 
 # cpp-project-template
